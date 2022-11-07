@@ -4,14 +4,12 @@ import {
   Text,
   View,
   TouchableOpacity,
-  StatusBar,
 } from "react-native";
 import React from "react";
 
 const App = () => {
   return (
     <SafeAreaView style={estilos.container}>
-      <StatusBar barStyle="default" />
       <View style={estilos.viewLogo}>
         <Text>Dá Hora Filmes</Text>
       </View>
