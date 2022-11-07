@@ -48,6 +48,7 @@ const estilos = StyleSheet.create({
   },
   viewLogo: {
     flex: 3,
+    width: "80%",
     backgroundColor: "green",
     textAlign: "center",
     justifyContent: "flex-end",
