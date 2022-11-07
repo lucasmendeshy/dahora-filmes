@@ -1,10 +1,4 @@
-import {
-  SafeAreaView,
-  Text,
-  View,
-  TouchableOpacity,
-  Image,
-} from "react-native";
+import { SafeAreaView, Text, View, Image, Pressable } from "react-native";
 import { useFonts } from "expo-font";
 import estilos from "./estilos";
 import logo from "./assets/imagens/logo.png";
@@ -24,23 +18,23 @@ const App = () => {
       </View>
 
       <View style={estilos.viewBotoes}>
-        <TouchableOpacity>
-          <Text style={estilos.botao}>Buscar Filmes</Text>
-        </TouchableOpacity>
+        <Pressable style={estilos.botaoInicial}>
+          <Text style={estilos.textoBotao}>Buscar Filmes</Text>
+        </Pressable>
 
-        <TouchableOpacity>
-          <Text style={estilos.botao}>Favoritos</Text>
-        </TouchableOpacity>
+        <Pressable style={estilos.botaoInicial}>
+          <Text style={estilos.textoBotao}>Favoritos</Text>
+        </Pressable>
       </View>
 
       <View style={estilos.viewRodape}>
-        <TouchableOpacity>
-          <Text style={estilos.botao}>Privacidade</Text>
-        </TouchableOpacity>
+        <Pressable style={estilos.botaoRodape}>
+          <Text style={estilos.textoBotao}>Privacidade</Text>
+        </Pressable>
 
-        <TouchableOpacity>
-          <Text style={estilos.botao}>Sobre</Text>
-        </TouchableOpacity>
+        <Pressable style={estilos.botaoRodape}>
+          <Text style={estilos.textoBotao}>Sobre</Text>
+        </Pressable>
       </View>
     </SafeAreaView>
   );

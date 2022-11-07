@@ -35,14 +35,23 @@ const estilos = StyleSheet.create({
     flex: 0.5,
     flexDirection: "row",
     justifyContent: "space-between",
-    width: "80%",
+    width: "100%",
+    backgroundColor: "#5451a6",
   },
-  botao: {
-    backgroundColor: "blue",
+  botaoInicial: {
+    borderStyle: "solid",
+    borderWidth: 2,
+    padding: 16,
+    backgroundColor: "#5451a6",
+    borderRadius: 10,
+  },
+  textoBotao: {
     fontSize: 20,
     color: "white",
-    padding: 10,
     textAlign: "center",
+  },
+  botaoRodape: {
+    padding: 16,
   },
 });
 
