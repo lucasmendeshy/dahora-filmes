@@ -1,20 +1,80 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  StatusBar,
+} from "react-native";
+import React from "react";
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+    <SafeAreaView style={estilos.container}>
+      <StatusBar barStyle="default" />
+      <View style={estilos.viewLogo}>
+        <Text>Dá Hora Filmes</Text>
+      </View>
 
-const styles = StyleSheet.create({
+      <View style={estilos.viewBotoes}>
+        <TouchableOpacity>
+          <Text style={estilos.botao}>Buscar Filmes</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <Text style={estilos.botao}>Favoritos</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={estilos.viewRodape}>
+        <TouchableOpacity>
+          <Text style={estilos.botao}>Privacidade</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <Text style={estilos.botao}>Sobre</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
+  );
+};
+
+export default App;
+
+const estilos = StyleSheet.create({
   container: {
+    backgroundColor: "yellow",
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  viewLogo: {
+    flex: 3,
+    backgroundColor: "green",
+    textAlign: "center",
+    justifyContent: "flex-end",
+    alignItems: "center",
+  },
+  viewBotoes: {
+    flex: 2,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    alignItems: "flex-start",
+    backgroundColor: "orange",
+    width: "80%",
+  },
+  viewRodape: {
+    flex: 0.5,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    backgroundColor: "red",
+    width: "80%",
+  },
+  botao: {
+    backgroundColor: "blue",
+    fontSize: 20,
+    color: "white",
+    padding: 20,
+    textAlign: "center",
   },
 });
