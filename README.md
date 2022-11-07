@@ -1,8 +1,33 @@
-> Why do I have a folder named ".expo" in my project?
-The ".expo" folder is created when an Expo project is started using "expo start" command.
-> What do the files contain?
-- "devices.json": contains information about devices that have recently opened this project. This is used to populate the "Development sessions" list in your development builds.
-- "settings.json": contains the server configuration that is used to serve the application manifest.
-> Should I commit the ".expo" folder?
-No, you should not share the ".expo" folder. It does not contain any information that is relevant for other developers working on the project, it is specific to your machine.
-Upon project creation, the ".expo" folder is already added to your ".gitignore" file.
+## App Dá Hora Filmes
+Aplicativo React Native que permite a busca por filmes usando a API TMDB (The MovieDB Database) e a seleção de filmes favoritos usando armazenamento offline/local no próprio dispositivo.
+
+## branch main
+Layout/Wireframe básico com as principais Views da tela inicial.
+
+Componentes usados: View, SafeAreaView, StyleSheet, Text, Button.
+
+Foram criados diversos objetos de estilização usando recursos Flex para layout.
+
+## branch 01-estilizacao-app
+Foram criados mais objetivos para estilização de cada View na tela inicial do App.
+
+Importação de fonte externa usando a lib **expo-fonts** e o hook **useFonts**.
+
+Instalação: **npm i expo-font**
+
+O arquivo de fonte foi colocado em **assets/fonts**.
+
+Importação de arquivo de imagem (logo) usando **import** tradicional. O arquivo de fonte foi colocado em **assets/fonts.**
+
+## branch 02-estilizacao-app-customizados
+Substituição do **Button** pelo **Pressable** (componente genérico pressionável altamente customizável).
+
+Estilização dos novos "botões" (Pressables).
+
+Instalação da lib **@expo/vector-icons** para componentes com ícones: **npm i @expo/vector-icons**
+
+Referências:
+
+`https://docs.expo.dev/guides/icons/`
+
+`https://icons.expo.fyi/`
