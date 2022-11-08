@@ -4,7 +4,7 @@ import React from "react";
 const FormBusca = () => {
   return (
     <SafeAreaView>
-      <Text>FormBusca</Text>
+      <Text>Buscar Filmes</Text>
     </SafeAreaView>
   );
 };
