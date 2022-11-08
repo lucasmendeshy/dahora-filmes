@@ -28,6 +28,7 @@ const App = () => {
           <Stack.Screen
             component={Home}
             name="Home"
+            /* headerShown -> exibição do cabeçalho do menu */
             options={{ headerShown: false }}
           />
 
