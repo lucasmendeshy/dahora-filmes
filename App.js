@@ -3,6 +3,7 @@ import Home from "./src/screens/Home/Home";
 import React from "react";
 import FormBusca from "./src/screens/FormBusca/FormBusca";
 import Favoritos from "./src/screens/Favoritos/Favoritos";
+import Sobre from "./src/screens/Sobre/Sobre";
 
 const App = () => {
   return (
@@ -10,7 +11,7 @@ const App = () => {
     dark-content, light-content, default */
     <>
       <StatusBar barstyle="default" />
-      <Favoritos />
+      <Sobre />
     </>
   );
 };
