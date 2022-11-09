@@ -44,6 +44,10 @@ const estilos = StyleSheet.create({
     padding: 16,
     backgroundColor: "#5451a6",
     borderRadius: 10,
+    shadowColor: "#171717",
+    shadowOffset: { width: -2, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
   },
   textoBotao: {
     fontSize: 20,
