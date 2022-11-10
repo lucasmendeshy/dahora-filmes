@@ -1,5 +1,6 @@
-import { SafeAreaView, Text } from "react-native";
+import { SafeAreaView, Text, Image, View } from "react-native";
 import estilos from "./SobreEstilos.js";
+import logoApi from "../../../assets/imagens/logo-tmdb.png";
 
 const Sobre = () => {
   return (
@@ -11,6 +12,9 @@ const Sobre = () => {
         existentes na base de dados pública disponibilizada pelo site The Movie
         Database (TMDb).
       </Text>
+      <View style={estilos.viewTmdb}>
+        <Image source={logoApi} />
+      </View>
       <Text style={estilos.texto}>
         Ao localizar um filme, o usuário pode visualizar informações como
         título, data de lançamento, nota média de avaliação e uma breve

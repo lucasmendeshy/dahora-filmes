@@ -7,6 +7,7 @@ import FormBusca from "./src/screens/FormBusca/FormBusca";
 import Favoritos from "./src/screens/Favoritos/Favoritos";
 import Sobre from "./src/screens/Sobre/Sobre";
 import Privacidade from "./src/screens/Privacidade/Privacidade";
+import Resultados from "./src/screens/Resultados/Resultados";
 
 const App = () => {
   /* Inicializando através de uma constante o gerenciador de navegação Stack (plhas de telas) */
@@ -41,6 +42,7 @@ const App = () => {
           <Stack.Screen component={Favoritos} name="Favoritos" />
           <Stack.Screen component={Privacidade} name="Privacidade" />
           <Stack.Screen component={Sobre} name="Sobre" />
+          <Stack.Screen component={Resultados} name="Resultados" />
         </Stack.Navigator>
       </NavigationContainer>
     </>

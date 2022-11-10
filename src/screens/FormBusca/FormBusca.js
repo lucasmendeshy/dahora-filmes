@@ -10,7 +10,7 @@ import { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import estilos from "./BuscaEstilos.js";
 
-const FormBusca = () => {
+const FormBusca = ({ navigation }) => {
   const filmeDigitado = (valorDigitado) => {
     setFilme(valorDigitado);
   };
@@ -23,12 +23,13 @@ const FormBusca = () => {
     if (!filme) {
       return Alert.alert("Ops!", "Opa! você deve digitar um filme!");
     }
-    Alert.alert("Você procurou por: ", filme);
+    /* Usamos a prop navigation (que vem do React Navigation programado no App) para acessar uma nova tela (no caso, Resultados). Para esta tela, passamos como objeto os dados digitados no formulário (neste caso, filme) */
+    navigation.navigate("Resultados", { filme });
   };
   return (
     <SafeAreaView>
       <Text style={estilos.texto}>
-        Star Trek? O Poderoso Chefão? A trilogia Senhor dos Anéis?
+        Star Trek? O Poderoso Chefão? A trilogia Senhor dos Anéis? 0
       </Text>
 
       <Text style={estilos.texto}>

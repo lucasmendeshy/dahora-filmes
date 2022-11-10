@@ -14,5 +14,9 @@ const estilos = StyleSheet.create({
     marginVertical: 8,
   },
   nomeApp: { color: "#5451a6", fontWeight: "bold" },
+  viewTmdb: {
+    marginVertical: 8,
+    alignItems: "center",
+  },
 });
 export default estilos;
