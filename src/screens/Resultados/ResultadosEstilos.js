@@ -4,5 +4,8 @@ const estilos = StyleSheet.create({
     flex: 1,
     padding: 16,
   },
+  viewFilmes: {
+    marginVertical: 8,
+  },
 });
 export default estilos;

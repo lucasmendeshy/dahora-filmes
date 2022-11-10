@@ -1,13 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
-
-const Api = () => {
-  return (
-    <View>
-      <Text>Api</Text>
-    </View>
-  );
-};
-
+import axios from "axios";
+const Api = axios.create({
+  baseURL: "https://api.themoviedb.org/3",
+});
 export default Api;
-
-const styles = StyleSheet.create({});
