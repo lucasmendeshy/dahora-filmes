@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { SafeAreaView, Text, View } from "react-native";
+import { SafeAreaView, Text, View, Image } from "react-native";
 import Loading from "../../components/Loading/Loading.js";
 import Api from "../../services/Api.js";
 import apiKey from "../../../apiKey.js";
@@ -44,7 +44,17 @@ const Resultados = ({ route }) => {
         <View style={estilos.viewFilmes}>
           {!loading &&
             resultados.map((resultado) => {
-              return <Text key={resultado.id}>{resultado.title}</Text>;
+              return (
+                <View key={resultado.id}>
+                  <Image
+                    style={estilos.imagem}
+                    source={{
+                      uri: `https://image.tmdb.org/t/p/original/${resultado.poster_path}`,
+                    }}
+                  ></Image>
+                  <Text>{resultado.title}</Text>
+                </View>
+              );
             })}
         </View>
       </View>
