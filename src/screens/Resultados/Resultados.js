@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
-import { SafeAreaView, Text, View, Image } from "react-native";
+import { SafeAreaView, Text, View, FlatList } from "react-native";
 import Loading from "../../components/Loading/Loading.js";
+import CardfFilme from "../../components/CardFilme/CardfFilme.js";
 import Api from "../../services/Api.js";
 import apiKey from "../../../apiKey.js";
+import ItemSeparador from "../../components/ItemSeparador/ItemSeparador.js";
+import ItemVazio from "../../components/ItemVazio/ItemVazio.js";
 import estilos from "./ResultadosEstilos.js";
+
 const Resultados = ({ route }) => {
   const { filme } = route.params;
   const [resultados, setResultados] = useState([]);
@@ -42,20 +46,17 @@ const Resultados = ({ route }) => {
         {loading && <Loading />}
         {/* Se loading for false, renderize o resultado do map */}
         <View style={estilos.viewFilmes}>
-          {!loading &&
-            resultados.map((resultado) => {
-              return (
-                <View key={resultado.id}>
-                  <Image
-                    style={estilos.imagem}
-                    source={{
-                      uri: `https://image.tmdb.org/t/p/original/${resultado.poster_path}`,
-                    }}
-                  ></Image>
-                  <Text>{resultado.title}</Text>
-                </View>
-              );
-            })}
+          {!loading && (
+            <FlatList
+              ItemSeparatorComponent={ItemSeparador}
+              ListEmptyComponent={ItemVazio}
+              data={resultados}
+              renderItem={({ item }) => {
+                return <CardfFilme filme={item} />;
+              }}
+              keyExtractor={(item) => item.id}
+            />
+          )}
         </View>
       </View>
     </SafeAreaView>

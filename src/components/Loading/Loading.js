@@ -1,10 +1,10 @@
 import { ActivityIndicator, View } from "react-native";
 import React from "react";
-import LoadingEstilos from "./LoadingEstilos.js";
+import estilos from "./LoadingEstilos.js";
 
 const Loading = () => {
   return (
-    <View style={LoadingEstilos.viewLoading}>
+    <View style={estilos.viewLoading}>
       <ActivityIndicator size="large" color="#5451a6" />
     </View>
   );
