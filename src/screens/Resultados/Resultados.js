@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { SafeAreaView, Text, View } from "react-native";
 import Api from "../services/Api.js";
+import apiKey from "../../../apiKey.js";
 import estilos from "./ResultadosEstilos.js";
 const Resultados = ({ route }) => {
   /* Usamos a prop route (Do React Navigation)  para acessar os parâmetros desta rota de navegação e extrair os dados (neste casso, filme) enviados para esta tela Resultados.*/
@@ -9,12 +10,15 @@ const Resultados = ({ route }) => {
 
   const [resultados, setResultados] = useState([]);
 
+  /* useEffect: hook do React que executa operações no momento em que o componente (neste caso, Resultado) é renderizado. */
   useEffect(() => {
+    /*  Assim que entrarmos em Resultado, é executado a função async buscarFilmes que por sua vez através do axios executa a consulta à API baseada no filme que foi digitado. */
     async function buscarFilmes() {
       try {
+        /* Aguardamos a resposta da consulta get ao endpoint "/search/movie" da api. Observe que este endpoint precisa de parâmetros para a execução correta da consulta. Estes parâmetros DEVEM ter o mesmo nome indicado na documentação do endpoint/API */
         const resposta = await Api.get("/search/movie", {
           params: {
-            api_key: "7726dc6b3289aaf55a4f630da4f3e3ae",
+            api_key: apiKey,
             language: "pt-br",
             query: filme,
             include_adult: false,
