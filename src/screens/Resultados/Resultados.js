@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { SafeAreaView, Text, View, FlatList } from "react-native";
 import Loading from "../../components/Loading/Loading.js";
-import CardfFilme from "../../components/CardFilme/CardfFilme.js";
+import CardFilme from "../../components/CardFilme/CardFilme.js";
 import Api from "../../services/Api.js";
 import apiKey from "../../../apiKey.js";
 import ItemSeparador from "../../components/ItemSeparador/ItemSeparador.js";
@@ -52,7 +52,7 @@ const Resultados = ({ route }) => {
               ListEmptyComponent={ItemVazio}
               data={resultados}
               renderItem={({ item }) => {
-                return <CardfFilme filme={item} />;
+                return <CardFilme filme={item} />;
               }}
               keyExtractor={(item) => item.id}
             />
