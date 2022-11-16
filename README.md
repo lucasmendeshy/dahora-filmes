@@ -69,3 +69,47 @@ No **App.js** adicionar os imports:
 Também no **App.js** fazemos a programação necessária para uso do **NavigationContainer**, **createNativeStackNavigator** e **Screen** das telas/componentes do nosso app.
 
 Por fim, cada botão (Pressable) existente em **Home** cujo objetivo é navegar para uma tela, deve ter sua prop **onPress** configurada para isso. **Atenção**: não esqueça de passar a prop **{navigation}** para o componente **Home**.
+
+## branch 05-exercicio-FormBusca
+
+**FormBusca.js**: adicionamos na função buscarFilmes a chamada `navigation.navigate("Resultados", { filme });` e removemos o `Alert.alert("Você procurou por: ", filme);` usado na branch 05.
+
+_Obs.:_ não se esqueça de adicionar a prop `{navigation}` na const do component `FormBusca`.
+
+**Resultados.js**: criamos este novo componente que funcionará como uma tela de apresentação dos resultados da busca de filmes.
+
+Adicionamos também a prop `{route}` e através dela acessamos o `filme` que foi digitado em `FormBusca`.
+
+**App.js**: adicionamos a nova tela para navegação:
+`<Stack.Screen component={Resultados} name="Resultados" />`
+
+### API
+
+Instalação da lib axios: `npm install axios`
+
+**services/api.js**: programos o `import` do axios e url base da API.
+
+**Resultados.js**:
+
+- programamos o state de resultados e o acesso à API **TMDB** usando recursos do axios.
+- programamos um `map` básico para testar a exibição dos resultados.
+
+## branch 07-melhorias-na-busca-e-resultados
+
+- Remoção de comentários
+- Programação do componente `Loading` usando recursos nativos do `ActivityIndicator`
+- Uso de renderização condicional com operador `&&`
+- Em `Resultados`, programação para carregamento da imagem do filme
+
+## branch 08-FlatList-e-componentes-adicionais
+
+- Em `Resultados`, aplicação do componente nativo `FlatList` para carregamento dos filmes
+
+`FlatList` é semelhante ao `ScrollView`, no entanto, tem uma perfomance melhor para carregamento de dados cujo volume é grande, variável e vindos de fontes externas (APIs).
+
+- Principais `props` do `FlatList`:
+  - data: fonte de dados (no nosso app, é o array `resultados`)
+  - renderItem: função que retorna o componente personalizado com os dados (`item`) existentes em `resultados`
+  - keyExtractor: função que extrai dos dados (`item`) um valor que servirá como `key` para cada registro (em nosso app, `id`)
+  - [opcional] ItemSeparatorComponent: aponta para um componente personalizado responsável por servir como um separador de itens (em nosso app, o item é cada filme)
+  - [opcional] ListEmptyComponent: aponta para um componente personalizado responsável por exibir uma mensagem para o caso de não existir itens (ou seja, resultados sem filmes)
