@@ -47,7 +47,9 @@ const FormBusca = ({ navigation }) => {
       </View>
 
       <Pressable style={estilos.botaoInicial} onPress={buscarFilmes}>
-        <Text style={estilos.textoBotao}>procurar</Text>
+        <Text style={estilos.textoBotao}>
+          <Ionicons name="search" size={16} color="#cccc" /> procurar
+        </Text>
       </Pressable>
 
       {/* <Button title="procurar" /> */}

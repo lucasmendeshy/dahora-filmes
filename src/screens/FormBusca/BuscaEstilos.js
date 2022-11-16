@@ -32,7 +32,7 @@ const estilos = StyleSheet.create({
     fontSize: 20,
     color: "white",
     textAlign: "center",
-    textTransform: "uppercase",
+    textTransform: "capitalize",
   },
 });
 export default estilos;

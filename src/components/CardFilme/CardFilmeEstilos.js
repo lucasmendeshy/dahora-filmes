@@ -4,6 +4,7 @@ const estilos = StyleSheet.create({
     flex: 1,
     height: 150,
     width: 100,
+    borderRadius: 3,
   },
   card: {
     marginVertical: 4,
