@@ -40,8 +40,7 @@ const estilos = StyleSheet.create({
   },
   botaoInicial: {
     borderStyle: "solid",
-    borderWidth: 2,
-    padding: 16,
+    padding: 12,
     backgroundColor: "#5451a6",
     borderRadius: 10,
     shadowColor: "#171717",
@@ -50,7 +49,7 @@ const estilos = StyleSheet.create({
     shadowRadius: 3,
   },
   textoBotao: {
-    fontSize: 20,
+    fontSize: 16,
     color: "white",
     textAlign: "center",
   },

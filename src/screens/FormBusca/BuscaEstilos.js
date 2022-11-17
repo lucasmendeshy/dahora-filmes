@@ -18,8 +18,7 @@ const estilos = StyleSheet.create({
   },
   botaoInicial: {
     borderStyle: "solid",
-    borderWidth: 2,
-    padding: 10,
+    padding: 12,
     backgroundColor: "#5451a6",
     borderRadius: 5,
     margin: 10,
@@ -29,7 +28,7 @@ const estilos = StyleSheet.create({
     shadowRadius: 3,
   },
   textoBotao: {
-    fontSize: 20,
+    fontSize: 16,
     color: "white",
     textAlign: "center",
     textTransform: "capitalize",
