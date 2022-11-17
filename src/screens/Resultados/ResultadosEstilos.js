@@ -10,5 +10,8 @@ const estilos = StyleSheet.create({
   viewFilmes: {
     marginVertical: 8,
   },
+  strong: {
+    fontWeight: "bold",
+  },
 });
 export default estilos;

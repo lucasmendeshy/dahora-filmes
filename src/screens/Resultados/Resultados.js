@@ -40,7 +40,9 @@ const Resultados = ({ route }) => {
   return (
     <SafeAreaView style={estilos.containerSafe}>
       <View style={estilos.container}>
-        <Text>Você buscou por: {filme}</Text>
+        <Text>
+          Você buscou por: <Text style={estilos.strong}> {filme}</Text>
+        </Text>
         {/* Sintaxe de if evaluate usando &&
          Se loading for TRUE, renderize <Loading /> */}
         {loading && <Loading />}

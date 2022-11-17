@@ -1,8 +1,9 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Text, View, Image, Pressable, Alert } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import estilos from "./CardFilmeEstilos";
-import { useNavigation } from "@react-navigation/native";
 
 const CardFilme = ({ filme }) => {
   const { title, poster_path } = filme;
@@ -13,6 +14,33 @@ const CardFilme = ({ filme }) => {
   const leiaMais = () => {
     /*  Alert.alert("Vai!", "Detalhes do filme..."); */
     navigation.navigate("Detalhes", { filme });
+  };
+
+  const salvar = async () => {
+    /*  return Alert.alert("FAVORITOS", "Salvando..."); */
+
+    /* Etapas para uso do AsyncStorage */
+
+    // 1) Carregamento do storage do aparelho (se houver, caso contrário retorna null)
+    const filmesFavoritos = await AsyncStorage.getItem("@Favoritos");
+    // console.log(filmesFavoritos);
+
+    // 2) Havendo storage prévio, transformamos os dados do filme em objeto e os guardamos em uma lista (array)
+    let listaDeFilmes = JSON.parse(filmesFavoritos);
+
+    // let teste; // undefined
+
+    // 3) Se a lista não for indefinido, vamos iniciá-la vazia
+    if (!listaDeFilmes) {
+      listaDeFilmes = [];
+    }
+
+    // 4) Adicionamos os dados do filme na lista (array)
+    listaDeFilmes.push(filme);
+
+    // 5) Finalmente, salvamos COMO STRING no storage do dispositivo
+    await AsyncStorage.setItem("@Favoritos", JSON.stringify(listaDeFilmes));
+    Alert.alert("Favoritos", "Filme salvo com sucesso!");
   };
   return (
     <View style={estilos.card}>
@@ -34,7 +62,7 @@ const CardFilme = ({ filme }) => {
             </Text>
           </Pressable>
 
-          <Pressable style={estilos.botao}>
+          <Pressable style={estilos.botao} onPress={salvar}>
             <Text style={estilos.textoBotao}>
               <AntDesign name="save" size={12} color="white" /> Salvar
             </Text>
