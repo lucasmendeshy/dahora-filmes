@@ -30,7 +30,7 @@ const CardFilme = ({ filme }) => {
 
     // let teste; // undefined
 
-    // 3) Se a lista não for indefinido, vamos iniciá-la vazia
+    // 3) Se a lista for indefinido, vamos iniciá-la vazia
     if (!listaDeFilmes) {
       listaDeFilmes = [];
     }
