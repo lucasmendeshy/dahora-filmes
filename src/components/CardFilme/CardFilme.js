@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Text, View, Image, Pressable, Alert } from "react-native";
+import { Text, View, Image, Pressable, Alert, Vibration } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
@@ -33,6 +33,18 @@ const CardFilme = ({ filme }) => {
     // 3) Se a lista for indefinido, vamos iniciá-la vazia
     if (!listaDeFilmes) {
       listaDeFilmes = [];
+    }
+
+    /* Etapa de verificação de filme já salvo */
+
+    /* Para cada filme existente na listaDeFilmes (se existir)*/
+    for (let filmeExistente in listaDeFilmes) {
+      /*vamos verificar se o id do filme existente é igual ao id do filme do card */
+      if (listaDeFilmes[filmeExistente].id == filme.id) {
+        Vibration.vibrate();
+        Alert.alert("Ops!", "Você já salvou este filme!");
+        return;
+      }
     }
 
     // 4) Adicionamos os dados do filme na lista (array)

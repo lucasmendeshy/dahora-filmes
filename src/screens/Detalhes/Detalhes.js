@@ -6,6 +6,7 @@ import {
   View,
 } from "react-native";
 import { formataData } from "../../utils/funcoes.js";
+import { Ionicons } from "@expo/vector-icons";
 import estilos from "./DetalhesEstilos.js";
 import fotoAlternativa from "../../../assets/imagens/foto-alternativa.jpg";
 
@@ -35,8 +36,9 @@ const Detalhes = ({ route }) => {
           <ScrollView showsVerticalScrollIndicator={false}>
             {/* showsVerticalScrollIndicator={false} -> tira a barra de rolagem */}
             <Text>
-              Avaliação: {filme.vote_average} | Lançamento:{" "}
-              {formataData(filme.release_date)}
+              Avaliação: <Ionicons name="star" size={14} color="gold" />{" "}
+              <Text style={estilos.strong}>{filme.vote_average}</Text> |
+              Lançamento: {formataData(filme.release_date)}
             </Text>
             <Text style={estilos.descricao}>
               {filme.overview || "sem descrição"}

@@ -10,9 +10,12 @@ import {
 import React, { useEffect, useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import estilos from "./FavoritosEstilos";
+import { useNavigation } from "@react-navigation/native";
 
 const Favoritos = () => {
   const [listaFavoritos, setListaFavoritos] = useState([]);
+
+  const navigation = useNavigation();
 
   useEffect(() => {
     async function carregarFavoritos() {
@@ -27,7 +30,7 @@ const Favoritos = () => {
         if (dados != null) {
           setListaFavoritos(filmes); /* State de dados do componente  */
         }
-        console.log(dados);
+        /* console.log(dados); */
       } catch (error) {
         console.log("Deu ruim no carregamento ", +error.message);
       }
@@ -35,11 +38,33 @@ const Favoritos = () => {
     carregarFavoritos();
   }, []);
 
+  const verDetalhes = (filmeSelecionado) => {
+    navigation.navigate("Detalhes", { filme: filmeSelecionado });
+  };
+
   const excluirFavoritos = async () => {
-    /* Usamos removeItem para apagar somente os dados do @favoritos do nosso App */
-    await AsyncStorage.removeItem("@Favoritos");
-    setListaFavoritos([]);
-    Alert.alert("Favoritos", "Favoritos excluídos!");
+    Alert.alert(
+      "Excluir todos?",
+      "Tem certeze que deseja excluir TODOS os favoritos?",
+      [
+        {
+          text: "Cancelar",
+          onPress: () => {
+            return false;
+          },
+          style: "cancel", // SOMENTE NO IOS
+        },
+        {
+          text: "Sim, to nem ai",
+          onPress: async () => {
+            /* Usamos removeItem para apagar somente os dados do @favoritos do nosso App */
+            await AsyncStorage.removeItem("@Favoritos");
+            setListaFavoritos([]);
+          },
+          style: "destructive",
+        },
+      ]
+    );
   };
 
   const excluirUmFavorito = async (indice) => {
@@ -85,7 +110,11 @@ const Favoritos = () => {
           {listaFavoritos.map((filmeFavorito, indice) => {
             return (
               <>
-                <Pressable key={filmeFavorito.id} style={estilos.itemFilme}>
+                <Pressable
+                  onPress={verDetalhes.bind(this, filmeFavorito)}
+                  key={filmeFavorito.id}
+                  style={estilos.itemFilme}
+                >
                   <Text style={estilos.titulo}>{filmeFavorito.title}</Text>
                   <Pressable
                     style={estilos.botaoExcluir}

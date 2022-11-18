@@ -71,9 +71,8 @@ export default App;
 const estilos1 = StyleSheet.create({
   botao: {
     padding: 8,
-    borderRadius: 5,
-    borderWidth: 1,
-    backgroundColor: "black",
+    borderRadius: 4,
+    backgroundColor: "#39A0ED",
   },
   texto: {
     color: "white",
