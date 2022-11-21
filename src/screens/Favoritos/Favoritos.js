@@ -30,7 +30,7 @@ const Favoritos = () => {
         if (dados != null) {
           setListaFavoritos(filmes); /* State de dados do componente  */
         }
-        /* console.log(dados); */
+        console.log(dados);
       } catch (error) {
         console.log("Deu ruim no carregamento ", +error.message);
       }
@@ -109,23 +109,21 @@ const Favoritos = () => {
         <ScrollView showsVerticalScrollIndicator={false}>
           {listaFavoritos.map((filmeFavorito, indice) => {
             return (
-              <>
+              <Pressable
+                onPress={verDetalhes.bind(this, filmeFavorito)}
+                key={filmeFavorito.id}
+                style={estilos.itemFilme}
+              >
+                <Text style={estilos.titulo}>{filmeFavorito.title}</Text>
                 <Pressable
-                  onPress={verDetalhes.bind(this, filmeFavorito)}
-                  key={filmeFavorito.id}
-                  style={estilos.itemFilme}
+                  style={estilos.botaoExcluir}
+                  //onPress={excluirUmFavorito}
+                  //onPress={() => excluirUmFavorito(indice)} // Sintaxe 1
+                  onPress={excluirUmFavorito.bind(this, indice)}
                 >
-                  <Text style={estilos.titulo}>{filmeFavorito.title}</Text>
-                  <Pressable
-                    style={estilos.botaoExcluir}
-                    //onPress={excluirUmFavorito}
-                    //onPress={() => excluirUmFavorito(indice)} // Sintaxe 1
-                    onPress={excluirUmFavorito.bind(this, indice)}
-                  >
-                    <Ionicons name="trash" size={16} color="white" />
-                  </Pressable>
+                  <Ionicons name="trash" size={16} color="white" />
                 </Pressable>
-              </>
+              </Pressable>
             );
           })}
         </ScrollView>
