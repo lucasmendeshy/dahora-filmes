@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/imagens/splash-dahora.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#ffe1ab"
     },
     "updates": {
       "fallbackToCacheTimeout": 0,
@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/imagens/adaptive-dahora.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.lucasmendesql.dahorafilmes"
     },
     "extra": {
       "eas": {
